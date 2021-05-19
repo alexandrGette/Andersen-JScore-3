@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Первое задание
+        Array.prototype.myFilter = function (callback,thisArg = this) {
+            let filterArr = [];
+            for (let i = 0; i < this.length; i++) {
+                const element = this[i];
+                if (callback.apply(thisArg,[element, i, this])) {
+                    filterArr.push(element)
+                } 
+            }
+            return filterArr;
+        }
+        let arr = [1,2,3];
+        
+        // Второе задание
+        function createDebounceFunction(callback, timeout){
+            let timer;
+            return (...args) => {
+                clearTimeout(timer);
+                timer = setTimeout(() => { callback.apply(this, args); }, timeout);
+            };
+        }
+     
+    </script>
+</body>
+</html>
